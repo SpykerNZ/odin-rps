@@ -66,8 +66,6 @@ function playRound(playerChoice, computerChoice) {
 function game() {
     const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
-    console.log(playerChoice);
-    console.log(computerChoice);
     const result = playRound(playerChoice, computerChoice);
     console.log(result);
 }
