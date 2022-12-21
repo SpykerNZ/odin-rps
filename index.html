@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <script src="scripts.js"></script>
-    <div class="main">
-        <h1>Rock! Paper... Scissors?</h1>
-        <h2>Choose your champion:</h2>
-        <div class="buttons">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+    <div class="flex-center">
+        <div class="content">
+            <h1 class="title">Rock! Paper... Scissors?</h1>
+            <h2 class="subtitle">Choose your champion:</h2>
+            <div class="choices">
+                <button class="choice">Rock</button>
+                <button class="choice">Paper</button>
+                <button class="choice">Scissors</button>
+            </div>
+            <p class="result">X BEATS Y</p>
+            <div class="scores">
+                <div class="player score-box">
+                    <p class="score-name">Challenger</p>
+                    <p class="score-value">0</p>
+                </div>
+                <div class="computer score-box">
+                    <p class="score-name">Computer</p>
+                    <p class="score-value">0</p>
+                </div>
+            </div>
+            <button class="rematch">Rematch!</button>
         </div>
-        <p>Result text goes here</p>
-        <p>Challenger: 0 Computer: 0</p>
-        <button>Rematch!</button>
     </div>
 </body>
 </html>

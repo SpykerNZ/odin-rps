@@ -3,21 +3,8 @@ const beatsArray = ["Rock", "Paper", "Scissors"];
 const resultArray = ["Win", "Lose", "Draw"];
 const outcomeArray = ["Beats", "Draws"];
 
-function getPlayerChoice() {
-    while (true)
-    {
-        c = prompt('Enter your choice - Rock, Paper or Scissors:');
-        if (checkValidChoice(c)) {
-            return c.charAt(0).toUpperCase() + c.slice(1);
-        } 
-    }
-}
-
-function checkValidChoice(c) {
-    for (let i = 0; i < choiceArray.length; i++) {
-        if (c.toLowerCase()===choiceArray[i].toLowerCase()) return true;
-    }
-    return false;
+function playRound(choice) {
+    result.textContent = fight(choice.textContent, getComputerChoice());
 }
 
 function getComputerChoice() {
@@ -25,7 +12,7 @@ function getComputerChoice() {
     return choiceArray[index];
 }
 
-function playRound(playerChoice, computerChoice) {
+function fight(playerChoice, computerChoice) {
     let result = null;
     let winner = null;
     let outcome = null;
@@ -38,7 +25,6 @@ function playRound(playerChoice, computerChoice) {
         loser=computerChoice;
     } else { 
         for (let i = 0; i < choiceArray.length; i++) {
-            console.log(choiceArray[i]);
             if (choiceArray[i]==playerChoice &&
                 beatsArray[i]==computerChoice) {
                     result=resultArray[0];
@@ -49,7 +35,6 @@ function playRound(playerChoice, computerChoice) {
                 };
         }
         for (let i = 0; i < choiceArray.length; i++) {
-            console.log(choiceArray[i]);
             if (choiceArray[i]==computerChoice &&
                 beatsArray[i]==playerChoice) {
                     result=resultArray[1];
@@ -63,11 +48,15 @@ function playRound(playerChoice, computerChoice) {
     return `You ${result}! ${winner} ${outcome} ${loser}.`;
 }
 
-function game() {
-    const playerChoice = getPlayerChoice();
-    const computerChoice = getComputerChoice();
-    const result = playRound(playerChoice, computerChoice);
-    console.log(result);
+function addChoiceListener(e) {
+
 }
 
-game();
+const choices = document.querySelectorAll('.choice');
+const result = document.querySelector('.result');
+
+choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+        playRound(choice);
+    })
+});
