@@ -60,6 +60,8 @@ body {
 .scores {
     display: flex;
     gap: 16px;
+    align-items: center;
+    height: 120px;
 }
 
 .score-box {
